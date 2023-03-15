@@ -1,0 +1,15 @@
+.post-control {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.comments-container {
+  margin: 1rem 0;
+}
+
+.comments-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}

@@ -1,0 +1,35 @@
+.formInput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: gray;
+}
+
+.formInput input,
+.formInput textarea {
+  margin: 0.7rem 0;
+  padding: 1rem;
+  background-color: #cfd8dc;
+  border: none;
+  border-radius: 5px;
+  width: 90%;
+}
+
+.formInput input:focus,
+.formInput textarea:focus {
+  border: none;
+  outline: 1px solid #2196f3;
+}
+
+.formInput label {
+  margin-left: 3%;
+  width: 30%;
+}
+
+.formInput-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}

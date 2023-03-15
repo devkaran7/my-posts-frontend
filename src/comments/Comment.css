@@ -1,0 +1,10 @@
+.comment-container {
+  margin: 0.5rem;
+  border-radius: 5px;
+}
+
+.comment {
+  color: black;
+  margin: 0 1%;
+  font-size: 1.2rem;
+}

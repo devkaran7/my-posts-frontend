@@ -1,0 +1,23 @@
+.image-previewer-container label {
+  margin: 1rem 4rem;
+  padding: 1rem 2rem;
+  background-color: #2196f3;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.image-previewer-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.image-previewer-container img {
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 1rem 2.5rem 1rem 0;
+}

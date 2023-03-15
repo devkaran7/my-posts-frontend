@@ -1,0 +1,26 @@
+.new-place-heading {
+  text-align: center;
+  color: #2196f3;
+}
+
+.new-place-card {
+  width: 60%;
+  margin: 2rem auto;
+}
+
+.new-place-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.new-place-btn {
+  width: 30%;
+  margin: 0.5rem auto;
+}
+
+@media (max-width: 768px) {
+  .new-place-card {
+    width: 90%;
+  }
+}

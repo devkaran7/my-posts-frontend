@@ -1,0 +1,22 @@
+.auth-container {
+  width: 60%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.auth-container h1 {
+  color: #2196f3;
+}
+
+.auth-form {
+  margin: 1rem 0;
+}
+
+.auth-form .btn {
+  margin-top: 1rem;
+}
+
+.auth-container .btn {
+  width: 15rem;
+  font-size: medium;
+}

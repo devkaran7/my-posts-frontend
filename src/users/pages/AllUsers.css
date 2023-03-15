@@ -1,0 +1,26 @@
+.all-users-container {
+  width: 60%;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.all-users-heading {
+  color: #2196f3;
+}
+
+.all-users-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+  .all-users-container {
+    width: 80%;
+  }
+}

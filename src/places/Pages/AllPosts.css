@@ -1,0 +1,9 @@
+.all-places-container {
+  width: 60%;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .all-places-container {
+    width: 90%;
+  }
+}

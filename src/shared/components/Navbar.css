@@ -1,0 +1,48 @@
+.main-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 4rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.navbar-title a {
+  text-decoration: none;
+  color: #2196f3;
+}
+
+.navbar-menu-btn {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  display: none;
+}
+
+.navbar-menu-btn:hover {
+  border: 1px solid #2196f3;
+}
+
+.navbar-menu-btn span {
+  display: block;
+  height: 0.4rem;
+  width: 2.5rem;
+  background-color: #2196f3;
+  margin: 6px;
+  border-radius: 16px;
+}
+
+@media (max-width: 768px) {
+  .navbar-menu-btn {
+    display: block;
+  }
+  .navbar-links {
+    display: none;
+  }
+}
