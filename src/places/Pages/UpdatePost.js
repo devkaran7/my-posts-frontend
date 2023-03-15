@@ -53,7 +53,7 @@ const UpdatePost = () => {
         });
       });
     setIsLoading(false);
-  }, [postId]);
+  }, [postId, values]);
 
   const changeHandler = (event, isValid) => {
     setValues({
@@ -84,7 +84,10 @@ const UpdatePost = () => {
     }
     setIsLoading(true);
     axios
-      .patch(`https://pink-average-lamb.cyclic.app/api/v1/post/update/${postId}`, data)
+      .patch(
+        `https://pink-average-lamb.cyclic.app/api/v1/post/update/${postId}`,
+        data
+      )
       .then((result) => {
         setIsLoading(false);
         toast("updated!", {
