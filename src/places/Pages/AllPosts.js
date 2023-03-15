@@ -8,10 +8,8 @@ import { InfinitySpin } from "react-loader-spinner";
 import BackDrop from "../../shared/UIElements/BackDrop";
 
 const AllPosts = () => {
-  const [posts, setPosts] = useState([]);
-
+  const [posts, setPosts] = useState();
   const [isLoading, setIsLoading] = useState(false);
-
   const [flag, setFlag] = useState(0);
 
   useEffect(() => {
@@ -50,36 +48,38 @@ const AllPosts = () => {
           />
         </div>
       )}
-      <div className="all-places-container">
-        {posts.length === 0 && (
-          <Card
-            style={{
-              width: "70%",
-              margin: "2rem auto",
-              textAlign: "center",
-              color: "#2196f3",
-            }}
-          >
-            <h1>No posts, create one now!</h1>
-          </Card>
-        )}
-        {posts.map((post) => {
-          return (
-            <PostSummary
-              key={post._id}
-              id={post._id}
-              photo={post.photo}
-              location={post.location}
-              caption={post.caption}
-              creator={post.creator}
-              likes={post.likes}
-              comments={post.comments}
-              createdAt={post.createdAt}
-              setFlag={setFlag}
-            />
-          );
-        })}
-      </div>
+      {posts && (
+        <div className="all-places-container">
+          {posts.length === 0 && (
+            <Card
+              style={{
+                width: "70%",
+                margin: "2rem auto",
+                textAlign: "center",
+                color: "#2196f3",
+              }}
+            >
+              <h1>No posts, create one now!</h1>
+            </Card>
+          )}
+          {posts.map((post) => {
+            return (
+              <PostSummary
+                key={post._id}
+                id={post._id}
+                photo={post.photo}
+                location={post.location}
+                caption={post.caption}
+                creator={post.creator}
+                likes={post.likes}
+                comments={post.comments}
+                createdAt={post.createdAt}
+                setFlag={setFlag}
+              />
+            );
+          })}
+        </div>
+      )}
     </>
   );
 };
