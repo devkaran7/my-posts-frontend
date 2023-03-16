@@ -27,7 +27,6 @@ const PostSummary = (props) => {
   useEffect(() => {
     if (userId) {
       setIsLiked(props.likes.find((p) => p.toString() === userId.toString()));
-      setIsLoading(true);
       axios
         .get("https://pink-average-lamb.cyclic.app/api/v1/users/" + userId)
         .then((res) => {
@@ -36,10 +35,8 @@ const PostSummary = (props) => {
               (p) => p._id.toString() === props.id.toString()
             )
           );
-          setIsLoading(false);
         })
         .catch((error) => {
-          setIsLoading(false);
           console.log(error);
           toast(error.response.data.message, {
             position: "bottom-right",
@@ -188,15 +185,12 @@ const PostSummary = (props) => {
   return (
     <>
       {isLoading && (
-        <div className="loader-center">
+        <>
           <BackDrop />
-          <InfinitySpin
-            width="200"
-            color="#2196f3"
-            position="center"
-            style={{ zIndex: "15" }}
-          />
-        </div>
+          <div className="loader-center">
+            <InfinitySpin width="200" color="#2196f3" position="center" />
+          </div>
+        </>
       )}
       {modalVisble && (
         <Modal
@@ -216,11 +210,11 @@ const PostSummary = (props) => {
       <Card style={{ margin: "2rem 0", color: "grey" }}>
         <div className="summary-header">
           <span>
-            <Link to={`/users/${props.creator._id}`}>
-              <h2>{props.creator.name}</h2>
+            <Link className="creator-name" to={`/users/${props.creator._id}`}>
+              {props.creator.name}
             </Link>
             {` posted ${msToTime(
-              Math.abs(Date.now() - new Date(comment.createdAt))
+              Math.abs(Date.now() - new Date(props.createdAt))
             )} ago`}
           </span>
           <span>

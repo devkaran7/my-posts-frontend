@@ -53,7 +53,9 @@ const FormInput = (props) => {
       <div className="formInput-container">
         {element}
         {touched && !isValid && (
-          <span style={{ color: "red" }}>{errorMessage}</span>
+          <span style={{ color: "red", margin: "0 1.3rem" }}>
+            {errorMessage}
+          </span>
         )}
       </div>
     </div>

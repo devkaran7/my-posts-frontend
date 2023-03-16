@@ -13,3 +13,16 @@
   align-items: center;
   padding: 1rem;
 }
+
+@media (max-width: 768px) {
+  .post-control {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .comments-title {
+    flex-direction: column;
+  }
+  .comments-title button {
+    margin: 1rem 0;
+  }
+}

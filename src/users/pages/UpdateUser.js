@@ -90,7 +90,7 @@ const UpdateUser = () => {
           type: "success",
         });
         setIsLoading(false);
-        navigate("/userprofile");
+        navigate("/users");
       })
       .catch((error) => {
         toast(error.response.data.message, {
@@ -111,15 +111,12 @@ const UpdateUser = () => {
   return (
     <>
       {isLoading && (
-        <div className="loader-center">
-          <InfinitySpin
-            width="200"
-            color="#2196f3"
-            position="center"
-            style={{ zIndex: "15" }}
-          />
+        <>
           <BackDrop />
-        </div>
+          <div className="loader-center">
+            <InfinitySpin width="200" color="#2196f3" position="center" />
+          </div>
+        </>
       )}
       <Card className="auth-container">
         <h1>Edit Profile</h1>

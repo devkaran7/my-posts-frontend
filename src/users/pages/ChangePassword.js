@@ -61,7 +61,10 @@ const ChangePassword = () => {
     }
     setIsLoading(true);
     axios
-      .patch(`https://pink-average-lamb.cyclic.app/api/v1/profile/update/password`, data)
+      .patch(
+        `https://pink-average-lamb.cyclic.app/api/v1/profile/update/password`,
+        data
+      )
       .then((result) => {
         loginUser(result.data.token, result.data.user._id);
         toast("password was updated successfully", {
@@ -76,7 +79,7 @@ const ChangePassword = () => {
           type: "success",
         });
         setIsLoading(false);
-        navigate("/places");
+        navigate("/users");
       })
       .catch((error) => {
         toast(error.response.data.message, {
@@ -97,15 +100,12 @@ const ChangePassword = () => {
   return (
     <>
       {isLoading && (
-        <div className="loader-center">
-          <InfinitySpin
-            width="200"
-            color="#2196f3"
-            position="center"
-            style={{ zIndex: "15" }}
-          />
+        <>
           <BackDrop />
-        </div>
+          <div className="loader-center">
+            <InfinitySpin width="200" color="#2196f3" position="center" />
+          </div>
+        </>
       )}
       <Card className="change-password-container">
         <h1>Change Password</h1>

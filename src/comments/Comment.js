@@ -130,15 +130,12 @@ const Comment = ({ comment, setFlag }) => {
   return (
     <>
       {isLoading && (
-        <div className="loader-center">
+        <>
           <BackDrop />
-          <InfinitySpin
-            width="200"
-            color="#2196f3"
-            position="center"
-            style={{ zIndex: "15" }}
-          />
-        </div>
+          <div className="loader-center">
+            <InfinitySpin width="200" color="#2196f3" position="center" />
+          </div>
+        </>
       )}
       {commentModal && (
         <Modal
@@ -165,8 +162,8 @@ const Comment = ({ comment, setFlag }) => {
       <div className="comment-container">
         <div className="summary-header">
           <span style={{ color: "grey" }}>
-            <Link to={`/users/${comment.creator._id}`}>
-              <h2>{comment.creator.name}</h2>
+            <Link className="creator-name" to={`/users/${comment.creator._id}`}>
+              {comment.creator.name}
             </Link>
             {` commented ${msToTime(
               Math.abs(Date.now() - new Date(comment.createdAt))

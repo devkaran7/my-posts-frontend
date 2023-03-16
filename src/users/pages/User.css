@@ -33,3 +33,12 @@
   font-size: medium;
   margin: 0 2rem;
 }
+
+@media (max-width: 768px) {
+  .user-info {
+    width: 82%;
+  }
+  .user-places {
+    width: 90%;
+  }
+}

@@ -21,3 +21,10 @@
   align-items: center;
   margin-top: 1rem;
 }
+
+
+@media (max-width : 768px) {
+  .modal-container{
+    width: 80%;
+  }
+}

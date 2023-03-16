@@ -103,10 +103,12 @@ const NewPost = () => {
   return (
     <>
       {isLoading && (
-        <div className="loader-center">
+        <>
           <BackDrop />
-          <InfinitySpin width="200" color="#2196f3" position="center" style={{ zIndex: "15" }}/>
-        </div>
+          <div className="loader-center">
+            <InfinitySpin width="200" color="#2196f3" position="center" />
+          </div>
+        </>
       )}
       <Card className="new-place-card">
         <h1 className="new-place-heading">New Post</h1>

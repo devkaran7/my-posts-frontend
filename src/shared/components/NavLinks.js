@@ -19,15 +19,12 @@ const NavLinks = () => {
   return (
     <>
       {isLoading && (
-        <div className="loader-center">
+        <>
           <BackDrop />
-          <InfinitySpin
-            width="200"
-            color="#2196f3"
-            position="center"
-            style={{ zIndex: "15" }}
-          />
-        </div>
+          <div className="loader-center">
+            <InfinitySpin width="200" color="#2196f3" position="center" />
+          </div>
+        </>
       )}
       <div className="nav-links">
         <span>
