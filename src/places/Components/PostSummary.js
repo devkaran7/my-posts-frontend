@@ -74,7 +74,9 @@ const PostSummary = (props) => {
     setModalVisible(false);
     setIsLoading(true);
     axios
-      .delete("https://pink-average-lamb.cyclic.app/api/v1/post/delete/" + props.id)
+      .delete(
+        "https://pink-average-lamb.cyclic.app/api/v1/post/delete/" + props.id
+      )
       .then((result) => {
         toast(result.data.message, {
           position: "bottom-right",
@@ -188,7 +190,12 @@ const PostSummary = (props) => {
       {isLoading && (
         <div className="loader-center">
           <BackDrop />
-          <InfinitySpin width="200" color="#2196f3" position="center" style={{ zIndex: "15" }}/>
+          <InfinitySpin
+            width="200"
+            color="#2196f3"
+            position="center"
+            style={{ zIndex: "15" }}
+          />
         </div>
       )}
       {modalVisble && (
@@ -212,7 +219,9 @@ const PostSummary = (props) => {
             <Link to={`/users/${props.creator._id}`}>
               <h2>{props.creator.name}</h2>
             </Link>
-            {` posted ${msToTime(Date.now() - new Date(props.createdAt))} ago`}
+            {` posted ${msToTime(
+              Math.abs(Date.now() - new Date(comment.createdAt))
+            )} ago`}
           </span>
           <span>
             {isSaved ? (

@@ -36,7 +36,9 @@ const Comment = ({ comment, setFlag }) => {
   const deleteHandler = () => {
     setIsLoading(true);
     axios
-      .delete("https://pink-average-lamb.cyclic.app/api/v1/comment/" + comment._id)
+      .delete(
+        "https://pink-average-lamb.cyclic.app/api/v1/comment/" + comment._id
+      )
       .then(() => {
         toast("comment deleted", {
           position: "bottom-right",
@@ -88,9 +90,12 @@ const Comment = ({ comment, setFlag }) => {
     }
     setIsLoading(true);
     axios
-      .patch("https://pink-average-lamb.cyclic.app/api/v1/comment/" + comment._id, {
-        text: loadedComment.value,
-      })
+      .patch(
+        "https://pink-average-lamb.cyclic.app/api/v1/comment/" + comment._id,
+        {
+          text: loadedComment.value,
+        }
+      )
       .then(() => {
         toast("comment updated", {
           position: "bottom-right",
@@ -164,7 +169,7 @@ const Comment = ({ comment, setFlag }) => {
               <h2>{comment.creator.name}</h2>
             </Link>
             {` commented ${msToTime(
-              Date.now() - new Date(comment.createdAt)
+              Math.abs(Date.now() - new Date(comment.createdAt))
             )} ago`}
           </span>
           {userId === comment.creator._id.toString() && (
