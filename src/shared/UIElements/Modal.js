@@ -10,15 +10,15 @@ const Modal = (props) => {
       <Card className="modal-container" style={props.style}>
         {props.children}
         <div className="modal-btn-control">
+          <button className="btn" onClick={props.onCancel}>
+            Cancel
+          </button>
           <button
             className="btn"
             style={{ backgroundColor: props.buttonColor }}
             onClick={props.onConfirm}
           >
             {props.buttonTitle}
-          </button>
-          <button className="btn" onClick={props.onCancel}>
-            Cancel
           </button>
         </div>
       </Card>

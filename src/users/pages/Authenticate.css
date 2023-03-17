@@ -20,3 +20,9 @@
   width: 15rem;
   font-size: medium;
 }
+
+@media (max-width: 768px) {
+  .auth-container {
+    width: 90%;
+  }
+}

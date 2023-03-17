@@ -38,7 +38,7 @@
   border-radius: 16px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 920px) {
   .navbar-menu-btn {
     display: block;
   }

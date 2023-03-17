@@ -29,9 +29,7 @@ const User = (props) => {
           <button
             className="btn"
             onClick={() => {
-              navigate("/userprofile/update/password", {
-                replace: true,
-              });
+              navigate("/userprofile/update/password");
             }}
           >
             Change Password
@@ -40,7 +38,6 @@ const User = (props) => {
             className="btn"
             onClick={() => {
               navigate("/userprofile/update", {
-                replace: true,
                 state: user,
               });
             }}

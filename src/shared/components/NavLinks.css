@@ -20,7 +20,7 @@
   color: #2196f3;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 920px) {
   .nav-links {
     flex-direction: column;
   }

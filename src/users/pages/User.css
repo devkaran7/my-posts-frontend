@@ -25,7 +25,9 @@
 }
 
 .user-btn-control {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 1rem;
 }
 
@@ -40,5 +42,12 @@
   }
   .user-places {
     width: 90%;
+  }
+  .user-btn-control {
+    flex-direction: column;
+  }
+
+  .user-btn-control .btn {
+    margin: 0.5rem 0;
   }
 }

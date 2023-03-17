@@ -1,59 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Card from "../../shared/UIElements/Card";
 import FormInput from "../../shared/UIElements/FormInput";
 import { VALIDATOR_REQUIRE } from "../../shared/utils/Validators";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import PostImage from "../Components/PostImage";
 import { InfinitySpin } from "react-loader-spinner";
 import BackDrop from "../../shared/UIElements/BackDrop";
 
 const UpdatePost = () => {
   const navigate = useNavigate();
-  const { postId } = useParams();
+  const state = useLocation().state;
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const [post, setPost] = useState();
   const [values, setValues] = useState({
     location: {
-      value: "",
+      value: state.location,
       valid: true,
     },
     caption: {
-      value: "",
+      value: state.caption,
       valid: true,
     },
   });
-
-  useEffect(() => {
-    setIsLoading(true);
-    axios
-      .get("https://pink-average-lamb.cyclic.app/api/v1/post/" + postId)
-      .then((result) => {
-        setPost(result.data.post);
-        values.location.value = result.data.post.location;
-        values.location.valid = true;
-        values.caption.value = result.data.post.caption;
-        values.caption.valid = true;
-      })
-      .catch((error) => {
-        toast(error.response.data.message, {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          type: "error",
-        });
-      });
-    setIsLoading(false);
-  }, [postId, values]);
 
   const changeHandler = (event, isValid) => {
     setValues({
@@ -85,7 +57,7 @@ const UpdatePost = () => {
     setIsLoading(true);
     axios
       .patch(
-        `https://pink-average-lamb.cyclic.app/api/v1/post/update/${postId}`,
+        `https://pink-average-lamb.cyclic.app/api/v1/post/update/${state.postId}`,
         data
       )
       .then((result) => {
@@ -132,7 +104,7 @@ const UpdatePost = () => {
       )}
       <Card className="new-place-card">
         <h1 className="new-place-heading">New Post</h1>
-        {post && <PostImage photo={post.photo} />}
+        <PostImage photo={state.photo} />
         <form className="new-place-form" onSubmit={formSubmitHandler}>
           <FormInput
             name="location"

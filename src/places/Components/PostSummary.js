@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 import { InfinitySpin } from "react-loader-spinner";
 import BackDrop from "../../shared/UIElements/BackDrop";
 import Modal from "../../shared/UIElements/Modal";
+import { msToTime } from "../../shared/utils/msToTime";
 
 const PostSummary = (props) => {
   const { userId } = useContext(AuthContext);
@@ -55,17 +56,6 @@ const PostSummary = (props) => {
       setIsLiked(undefined);
     }
   }, [userId, props.likes, props.id]);
-
-  const msToTime = (ms) => {
-    let seconds = (ms / 1000).toFixed(0);
-    let minutes = (ms / (1000 * 60)).toFixed(0);
-    let hours = (ms / (1000 * 60 * 60)).toFixed(0);
-    let days = (ms / (1000 * 60 * 60 * 24)).toFixed(0);
-    if (seconds < 60) return seconds + " s";
-    else if (minutes < 60) return minutes + " m";
-    else if (hours < 24) return hours + " h";
-    else return days + " d";
-  };
 
   const postDeleteHandler = () => {
     setModalVisible(false);
@@ -233,7 +223,14 @@ const PostSummary = (props) => {
               <BiEdit
                 className="summary-icons"
                 onClick={() => {
-                  navigate("/posts/update/" + props.id);
+                  navigate("/posts/update/" + props.id, {
+                    state: {
+                      postId: props.id,
+                      photo: props.photo,
+                      location: props.location,
+                      caption: props.caption,
+                    },
+                  });
                 }}
               />
             )}
@@ -252,28 +249,21 @@ const PostSummary = (props) => {
         <p className="summary-caption">{props.caption}</p>
         <div className="summary-footer">
           <div className="summary-interaction">
-            <span>
+            <span onClick={likeHandler}>
               {isLiked ? (
-                <AiTwotoneLike
-                  className="summary-icons"
-                  onClick={likeHandler}
-                />
+                <AiTwotoneLike className="summary-icons" />
               ) : (
-                <AiOutlineLike
-                  className="summary-icons"
-                  onClick={likeHandler}
-                />
+                <AiOutlineLike className="summary-icons" />
               )}{" "}
               {likesCnt} likes
             </span>
-            <span>
-              <BiComment
-                className="summary-icons"
-                onClick={() => {
-                  navigate("/posts/" + props.id);
-                }}
-              />{" "}
-              {props.comments.length} comments
+            <span
+              onClick={() => {
+                navigate("/posts/" + props.id);
+              }}
+            >
+              <BiComment className="summary-icons" /> {props.comments.length}{" "}
+              comments
             </span>
           </div>
         </div>
